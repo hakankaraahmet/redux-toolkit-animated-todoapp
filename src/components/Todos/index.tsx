@@ -23,12 +23,12 @@ const Todos = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center flex-col">
+    <div className="flex flex-col items-center w-full min-h-screen">
       <div className="py-4 w-full md:w-2/3  text-center tracking-wider text-2xl text-[#881bb3] flex-col lg:flex-row flex items-center justify-center">
         Hakan Karaahmetoglu{" "}
-        <span className="font-bold p-2 lg:p-4"> Todo App</span>
+        <span className="p-2 font-bold lg:p-4"> Todo App</span>
       </div>
-      <div className="flex p-4 w-full md:w-2/3 lg:w-1/3 justify-center">
+      <div className="flex justify-center w-full p-4 md:w-2/3 lg:w-1/3">
         <input
           type="text"
           onChange={(e) => handleChange(e)}
