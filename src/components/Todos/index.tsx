@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addTodos } from "../../features/todoSlice";
+import { addTodos, removeTodos } from "../../features/todoSlice";
 
 const Todos = () => {
   const [todo, setTodo] = useState("");
@@ -22,6 +22,12 @@ const Todos = () => {
       setTodo("")
   }
 
+  const handleDelete = (id: number) => {
+    dispatch(
+        removeTodos(id)
+    )
+  }
+
   console.log("todoList", todoList);
   return (
     <div className="">
@@ -37,6 +43,9 @@ const Todos = () => {
         {todoList.map((todo) => (
             <li key={todo?.id}>
                 {todo?.item}
+                <button onClick={() => handleDelete(todo?.id)}>
+                    Delete
+                </button>
             </li>
         ))}
       </ul>
