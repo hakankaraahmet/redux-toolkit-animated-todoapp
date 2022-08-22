@@ -41,13 +41,19 @@ const TodoItem = ({ todo }: { todo: any }) => {
         disabled={inputRef.current}
         defaultValue={todo?.item}
         rows={5}
-        className="outline-none w-full resize-none rounded-lg bg-transparent p-2"
+        className="w-full p-2 capitalize bg-transparent rounded-lg outline-none resize-none text-[#49045c] font-bold"
         onKeyPress={(e) => handleUpdate(todo?.id, inputRef.current.value, e)}
       />
       <div className="flex justify-end py-4">
-        <button className="pr-6" onClick={() => handleFocus()}><img src="/images/editTodo.svg" alt="edit"/></button>
-        <button className="pr-6" onClick={() => handleComplete(todo?.id)}><img src="/images/completeTodo.svg" alt="complete"/></button>
-        <button className="pr-2" onClick={() => handleDelete(todo?.id)}><img src="/images/deleteTodo.svg" alt="delete"/></button>
+        <button className="pr-6" onClick={() => handleFocus()}>
+          <img src="/images/editTodo.svg" alt="edit" />
+        </button>
+        <button className="pr-6" onClick={() => handleComplete(todo?.id)}>
+          <img src="/images/completeTodo.svg" alt="complete" />
+        </button>
+        <button className="pr-2" onClick={() => handleDelete(todo?.id)}>
+          <img src="/images/deleteTodo.svg" alt="delete" />
+        </button>
       </div>
     </li>
   );

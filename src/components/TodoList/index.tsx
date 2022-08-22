@@ -6,8 +6,8 @@ const TodoList = () => {
   const { todoList } = useAppSelector((state) => state?.todos);
   const [sort, setSort] = useState("active");
   return (
-    <div className="w-full flex items-center flex-col">
-      <div className="w-full md:w-2/3 lg:w-1/3 py-4 flex justify-evenly">
+    <div className="flex flex-col items-center w-full">
+      <div className="flex w-full py-4 md:w-2/3 lg:w-1/3 justify-evenly">
         <button
           className={`${
             sort === "active"
@@ -39,23 +39,29 @@ const TodoList = () => {
           All
         </button>
       </div>
-      <ul className=" w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {todoList.length > 0 && sort === "active"
-          ? todoList.map((todo) => {
-              return todo.completed === false && <TodoItem todo={todo} />;
-            })
-          : null}
-        {todoList.length > 0 && sort === "completed"
-          ? todoList.map((todo) => {
-              return todo.completed === true && <TodoItem todo={todo} />;
-            })
-          : null}
-        {todoList.length > 0 && sort === "all"
-          ? todoList.map((todo) => {
-              return <TodoItem todo={todo} />;
-            })
-          : null}
-      </ul>
+      {todoList.length === 0 ? (
+        <div className="text-[#49045c] font-bold text-xl mt-40">
+          Let's add some tasks :]
+        </div>
+      ) : (
+        <ul className="grid w-4/5 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {todoList.length > 0 && sort === "active"
+            ? todoList.map((todo) => {
+                return todo.completed === false && <TodoItem todo={todo} />;
+              })
+            : null}
+          {todoList.length > 0 && sort === "completed"
+            ? todoList.map((todo) => {
+                return todo.completed === true && <TodoItem todo={todo} />;
+              })
+            : null}
+          {todoList.length > 0 && sort === "all"
+            ? todoList.map((todo) => {
+                return <TodoItem todo={todo} />;
+              })
+            : null}
+        </ul>
+      )}
     </div>
   );
 };
