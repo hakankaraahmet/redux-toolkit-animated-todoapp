@@ -23,6 +23,7 @@ const TodoItem = ({ todo }: { todo: any }) => {
   };
 
   const handleDelete = (id: number) => {
+    alert("Are you sure you want to delete this item?");
     dispatch(removeTodos(id));
   };
 
