@@ -31,16 +31,23 @@ const TodoItem = ({ todo }: { todo: any }) => {
   };
 
   return (
-    <li key={todo?.id}>
+    <li
+      key={todo?.id}
+      className="border-2 border-[#881bb3] rounded-lg bg-gradient-to-r from-[#ecc2f2] via-[#e9aaf2] to-[#e890f5]"
+    >
       <textarea
         ref={inputRef}
         disabled={inputRef.current}
         defaultValue={todo?.item}
+        rows={5}
+        className="outline-none w-full resize-none rounded-lg bg-transparent p-2"
         onKeyPress={(e) => handleUpdate(todo?.id, inputRef.current.value, e)}
       />
-      <button onClick={() => handleFocus()}>Edit</button>
-      <button onClick={() => handleComplete(todo?.id)}>Complete</button>
-      <button onClick={() => handleDelete(todo?.id)}>Delete</button>
+      <div className="flex justify-end py-4">
+        <button className="pr-6" onClick={() => handleFocus()}><img src="/images/editTodo.svg" alt="edit"/></button>
+        <button className="pr-6" onClick={() => handleComplete(todo?.id)}><img src="/images/completeTodo.svg" alt="complete"/></button>
+        <button className="pr-2" onClick={() => handleDelete(todo?.id)}><img src="/images/deleteTodo.svg" alt="delete"/></button>
+      </div>
     </li>
   );
 };

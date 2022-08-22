@@ -12,7 +12,7 @@ const TodoList = () => {
         <button className="bg-gradient-to-r from-[#df40f5] via-[#dc2af5] to-[#870599] p-4 text-white font-medium tracking-wider rounded-2xl" onClick={() => setSort("completed")}>Completed</button>
         <button className="bg-gradient-to-r from-[#870599] via-[#660e73] to-[#50025c] p-4 text-white font-medium tracking-wider rounded-2xl" onClick={() => setSort("all")}>All</button>
       </div>
-      <ul>
+      <ul className=" w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {todoList.length > 0 && sort === "active"
           ? todoList.map((todo) => {
               return todo.completed === false && <TodoItem todo={todo} />;
