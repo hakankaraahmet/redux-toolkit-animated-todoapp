@@ -23,7 +23,7 @@ const todoSlice = createSlice({
       return state;
     },
     updateTodos: (state, action) => {
-        state.todoList = state.todoList.map((todo) => {
+      state.todoList = state.todoList.map((todo) => {
         if (todo.id === action.payload.id) {
           return {
             ...todo,
@@ -33,9 +33,21 @@ const todoSlice = createSlice({
         return todo;
       });
     },
+    completeTodos: (state, action) => {
+      state.todoList = state.todoList.map((todo) => {
+        if (todo.id === action.payload) {
+          return {
+            ...todo,
+            completed: true,
+          };
+        }
+        return todo;
+      });
+    },
   },
 });
 
-export const { addTodos, removeTodos, updateTodos } = todoSlice.actions;
+export const { addTodos, removeTodos, updateTodos, completeTodos } =
+  todoSlice.actions;
 
 export default todoSlice.reducer;
