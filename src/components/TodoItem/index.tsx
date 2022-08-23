@@ -34,7 +34,7 @@ const TodoItem = ({ todo }: { todo: any }) => {
   return (
     <li
       key={todo?.id}
-      className="border-2 border-[#881bb3] rounded-lg bg-gradient-to-r from-[#ecc2f2] via-[#e9aaf2] to-[#e890f5]"
+      className="border-2 border-[#881bb3] rounded-lg bg-gradient-to-r from-[#ecc2f2] via-[#e9aaf2] to-[#e890f5] special-anim"
     >
       <textarea
         ref={inputRef}
