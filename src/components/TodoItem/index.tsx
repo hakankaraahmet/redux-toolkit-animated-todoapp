@@ -44,16 +44,22 @@ const TodoItem = ({ todo }: { todo: any }) => {
         className="w-full p-2 capitalize bg-transparent rounded-lg outline-none resize-none text-[#49045c] font-bold"
         onKeyPress={(e) => handleUpdate(todo?.id, inputRef.current.value, e)}
       />
-      <div className="flex justify-end py-4">
-        <button className="pr-6" onClick={() => handleFocus()}>
-          <img src="/images/editTodo.svg" alt="edit" />
-        </button>
-        <button className="pr-6" onClick={() => handleComplete(todo?.id)}>
-          <img src="/images/completeTodo.svg" alt="complete" />
-        </button>
-        <button className="pr-2" onClick={() => handleDelete(todo?.id)}>
-          <img src="/images/deleteTodo.svg" alt="delete" />
-        </button>
+      <div className="flex items-center justify-between">
+        <div className="text-[#49045c] font-bold">
+          <span className="pl-2">{todo?.date}</span>
+          <span className="pl-4">{todo?.hour}</span>
+        </div>
+        <div className="flex justify-end py-4">
+          <button className="pr-6" onClick={() => handleFocus()}>
+            <img src="/images/editTodo.svg" alt="edit" />
+          </button>
+          <button className="pr-6" onClick={() => handleComplete(todo?.id)}>
+            <img src="/images/completeTodo.svg" alt="complete" />
+          </button>
+          <button className="pr-2" onClick={() => handleDelete(todo?.id)}>
+            <img src="/images/deleteTodo.svg" alt="delete" />
+          </button>
+        </div>
       </div>
     </li>
   );

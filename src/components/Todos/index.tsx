@@ -6,6 +6,14 @@ import TodoList from "../TodoList";
 const Todos = () => {
   const [todo, setTodo] = useState("");
   const dispatch = useAppDispatch();
+  const dateObj = new Date();
+  const today =
+    dateObj.getUTCDate() +
+    "/" +
+    dateObj.getUTCMonth() +
+    "/" +
+    dateObj.getUTCFullYear();
+  const hour = dateObj.getHours() + ":" + dateObj.getMinutes();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodo(e.target.value);
@@ -17,6 +25,8 @@ const Todos = () => {
         id: Math.floor(Math.random() * 1000),
         item: todo,
         completed: false,
+        date: today,
+        hour: hour,
       })
     );
     setTodo("");

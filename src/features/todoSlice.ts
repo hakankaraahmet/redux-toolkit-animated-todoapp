@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type TodoProps = {
-  todoList: { id: number; item: string; completed: boolean }[];
+  todoList: {
+    id: number;
+    item: string;
+    completed: boolean;
+    date: string;
+    hour: string;
+  }[];
 };
 
 const initialState: TodoProps = {
